@@ -1,0 +1,37 @@
+@model List<CadastroDeProdutos.Models.Produto>
+
+<h1>Produtos Registrados</h1>
+
+@foreach (var produto in Model)
+{ <h2>@produto.Nome</h2>
+
+
+<p>Preço: R$ @produto.Preco</p>
+
+<p>Quantidade: @produto.Quantidade</p>
+
+<img src="@produto.Imagem" alt="@produto.Nome" width="200">
+
+<br><br>
+
+<video width="400" controls>
+    <source src="@produto.Video" type="video/mp4">
+    Seu navegador não suporta vídeo.
+</video>
+
+<br><br>
+
+<a href="/Produto/AdicionarCarrinho?id=@produto.Id">
+    Adicionar ao Carrinho
+</a>
+
+<hr>
+
+
+}
+
+<br>
+
+<a href="/Produto/Carrinho">
+    Ver Carrinho
+</a>
